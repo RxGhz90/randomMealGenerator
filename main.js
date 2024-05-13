@@ -44,10 +44,18 @@ const generateMealPlan = () => {
             case 'lunchChoice':
                 mealPlan.push(`Lunch: ${catalogMeal[meal][randNumber]}`); break;
             case 'dinnerChoice':
-                mealPlan.push(`Lunch: ${catalogMeal[meal][randNumber]}`); break;
+                mealPlan.push(`Dinner: ${catalogMeal[meal][randNumber]}`); break;
             default:
                 generateMealPlan(); break;
         }
-        return mealPlan;
-    }
+    } return mealPlan;
 }
+
+const printMealPlanForToday = () => {
+    const selectedMeal = generateMealPlan();
+    const printMealPlan = selectedMeal.join('\n');
+    
+    return `Here's your random meal plan for today! \n${printMealPlan} \n\nEnjoy your meal today.`;
+} 
+
+console.log(printMealPlanForToday());
