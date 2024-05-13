@@ -30,3 +30,24 @@ const catalogMeal = {
         'Veggie chili served with a side of cornbread'
     ]
 }
+
+// Generate Meal Plan
+const generateMealPlan = () => {
+    const sevenDays = 7; 
+    const randNumber = Math.floor(Math.random() * (sevenDays + 1));
+    let mealPlan = [];
+
+    for (const meal in catalogMeal) {
+        switch (meal) {
+            case 'breakfastChoice':
+                mealPlan.push(`Breakfast: ${catalogMeal[meal][randNumber]}`); break;
+            case 'lunchChoice':
+                mealPlan.push(`Lunch: ${catalogMeal[meal][randNumber]}`); break;
+            case 'dinnerChoice':
+                mealPlan.push(`Lunch: ${catalogMeal[meal][randNumber]}`); break;
+            default:
+                generateMealPlan(); break;
+        }
+        return mealPlan;
+    }
+}
